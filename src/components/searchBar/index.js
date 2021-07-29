@@ -7,18 +7,14 @@ const Search = ({movieData}) => {
         axios.get(`https://www.omdbapi.com/?apikey=45f0782a&s=${value}`)
              .then(res => setData(res.data.Search));
     }
-    const receive = () => {
-        if(data !== undefined) {
-        movieData(data)
-        } else {
-            alert("Please Enter A Valid Movie Name!")
-        }
-    }
+   useEffect(() => {
+       movieData(data)
+   },[data])
      return(
         <div>
             <label>
-            <input onChange={movieSearch} id="search-bar" type="text" placeholder="Search Movie Name"></input>
-            <button onClick={receive}  id="search-btn">Search</button>
+            <input id="search-bar" type="text" placeholder="Search Movie Name"></input>
+            <button onClick={movieSearch}  id="search-btn">Search</button>
             </label>
         </div>
     )
