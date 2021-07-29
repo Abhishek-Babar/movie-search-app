@@ -15,7 +15,7 @@ class App extends Component {
   render() {
   return (
     <div className="App">
-        < Search movieData={(data) => this.setState({data:data},() => console.log(data))}/>
+        < Search movieData={(data) => this.setState({data:data})}/>
         <div id="movie-wrap">
           {this.state.data.map(movie => (
         < Movie movieDetails={movie} />
